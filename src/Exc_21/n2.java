@@ -67,10 +67,6 @@ public class n2 extends JFrame {
         setSize(300, 300);
         Container container = getContentPane();
 
-
-
-
-
         container.add(new Panel().Panel(Color.BLUE,"Север"), "North");
         container.add(new Panel().Panel(Color.ORANGE,"Юг"), "South");
         container.add(new Panel().Panel(Color.GREEN,"Запад"), BorderLayout.WEST);
