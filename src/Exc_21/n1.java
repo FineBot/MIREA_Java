@@ -32,7 +32,7 @@ public class n1 {
                     else if(buff<t)
                         jl.setText("Больше "+(3-p) );
                     else
-                        jl.setText("Именно оно!");
+                        jl.setText("Получилось!");
                 }
 
             }
