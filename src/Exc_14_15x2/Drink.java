@@ -1,4 +1,4 @@
-package Exc_14_15;
+package Exc_14_15x2;
 
 public final class Drink implements Item {
     private int price;

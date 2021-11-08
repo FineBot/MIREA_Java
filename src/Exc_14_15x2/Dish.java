@@ -1,17 +1,19 @@
-package Exc_14_15;
+package Exc_14_15x2;
 
-public final class Drink implements Item {
+public final class Dish implements Item {
     private int price;
     private String name;
     private String desc;
 
-    Drink(String name, String desc){
+    Dish(String name, String desc){
         price=0;
         this.name=name;
 
         this.desc=desc;
     }
-    Drink(int price, String name, String desc){
+    Dish(int price, String name, String desc){
+        if(price<0 || name.equals("") || desc.equals(""))
+            throw new IllegalArgumentException("The argument must be more then 0 and not equals empty symbol.");
         this.price=price;
         this.name=name;
         this.desc=desc;
