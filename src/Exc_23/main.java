@@ -39,6 +39,14 @@ public class main {
         fileName=sc.nextLine();
         System.out.println(read(fileName));
 
+        System.out.print("\nчто заменить: ");
+        String a=sc.nextLine();
+        System.out.print("\nна что заменить: ");
+        String b=sc.nextLine();
+        String c=read(fileName);
+        write(c.replace(a,b),fileName);
+
+
         System.out.print("\nКуда записывать: ");
         fileName=sc.nextLine();
         System.out.print("Что записать: ");

@@ -44,7 +44,6 @@ class LabExample extends JFrame {
                     g2d.setColor(Color.PINK);
                     break;
             }
-
             switch (Math.abs(rand.nextInt() % 4)) {
                 case 0:
                     g2d.drawOval(x, y, 50, 50);
@@ -53,11 +52,7 @@ class LabExample extends JFrame {
                     g2d.drawRect(x,y,50,50);
                     break;
                 case 2:
-
-
-
                     g2d.drawRoundRect(x, y, width, height, arcWidth, arcHeight);
-
                     break;
                 case 3:
                     g2d.drawRoundRect(x, y, width, height, arcWidth, arcHeight);

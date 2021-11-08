@@ -48,8 +48,11 @@ class Cat implements Nameable {
 interface Priceable {
     int getPrice();
 }
+abstract class test{
 
-class MSI_GL75_9SCK implements Priceable {
+    abstract public void dsada();
+}
+class MSI_GL75_9SCK implements Priceable{
     private int price;
 
     MSI_GL75_9SCK(int p) {
@@ -66,7 +69,7 @@ public class main {
         Planet earth = new Planet("Earth");
         System.out.println(earth.getName());
 
-        Cat v = new Cat("Васёк");
+        Cat v = new Cat("Ва465465сёк");
         System.out.println("\n" + v.getName());
 
         MSI_GL75_9SCK laptop = new MSI_GL75_9SCK(105000);
