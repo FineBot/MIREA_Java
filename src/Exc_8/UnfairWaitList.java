@@ -8,7 +8,6 @@ public class UnfairWaitList<E> extends WaitList<E>{
     public void remove(E elem){
         if(content.peek()!=elem){
             content.remove(elem);
-
         }
     }
 
