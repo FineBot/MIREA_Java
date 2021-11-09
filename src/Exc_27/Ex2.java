@@ -10,7 +10,9 @@ public class Ex2 {
         String n;
         System.out.println("Введите строку:");
         n=sc.nextLine();
-        Pattern pattern=Pattern.compile("^(a(b(c(d(e(f(g(h(i(j(k(l(m(n(o(p(q(r(s(t(u(v(1(8(3(4(0)?)?)?)?)?)?)?)?)?)?)?)?)?)?)?)?)?)?)?)?)?)?)?)?)?)?)$");
+
+        Pattern pattern=Pattern.compile("^(a(b(c(d(e(f(g(h(i(j(k(l(m(n(o(p(q(r(s(t(u(v(w(x(y(z)?)?)?)?)?)?)?)?)?)?)?)?)?)?)?)?)?)?)?)?)?)?)?)?)?)(\\d{1,})$");
+
         Matcher matcher=pattern.matcher(n);
         if(matcher.find())
             System.out.println("Yes");
