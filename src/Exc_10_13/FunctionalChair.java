@@ -1,10 +1,15 @@
 package Exc_10_13;
 
 public class FunctionalChair implements Chair{
-    public int sum(int a,int b){return a+b;}
+    private int age=0;
+    public FunctionalChair(int age) {
+        this.age=age;
+    }
+
+    public int sum(int a, int b){return a+b;}
 
     @Override
     public void sit() {
-        System.out.println(sum(2,3));
+        System.out.println(sum(age,age));
     }
 }

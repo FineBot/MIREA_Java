@@ -1,16 +1,16 @@
 package Exc_26;
 
 import java.util.*;
-import java.util.regex.Pattern;
+
 
 public class main {
-
-
-
-    public static <T> ArrayList<T> newArrayList(T... elements) {
-        ArrayList<T> res = new ArrayList<>();
-        Collections.addAll(res, elements);
-
+    public static <K, V> HashMap<K, V> newHashMap(List<? extends K> keys, Set<? extends V> values) {
+        if (keys.size() != values.size())
+            throw new IllegalArgumentException();
+        HashMap<K, V> res = new HashMap<>();
+        for (int i = 0; i < keys.size(); i++) {
+            res.put(keys.get(i), (V) values.toArray()[i]);
+        }
         return res;
     }
 
@@ -18,23 +18,19 @@ public class main {
         return new HashSet<>(Arrays.asList(elements));
     }
 
-    public static <K, V> HashMap<K, V> newHashMap(List<? extends K> keys, List<? extends V> values) {
-        if (keys.size() != values.size())
-            throw new IllegalArgumentException();
-
-        HashMap<K, V> res = new HashMap<>();
-        for (int i = 0; i < keys.size(); i++) {
-            res.put(keys.get(i), values.get(i));
-        }
-
+    public static <T> ArrayList<T> newArrayList(T... elements) {
+        ArrayList<T> res = new ArrayList<>();
+        Collections.addAll(res, elements);
         return res;
     }
+
+
     public static void main(String[] args) {
-        ArrayList<Integer> tst = newArrayList (10, 20, 30, 40, 30);
-        HashSet<Integer> tst1 = newHashSet (10, 20, 30, 40, 40);
-        HashMap<Integer, Integer> tst2 = newHashMap(tst, tst);
-        System.out.println(tst);
-        System.out.println(tst1);
-        System.out.println(tst2);
+        ArrayList<String> a1 = newArrayList("a", "b", "c", "d", "e", "f");
+        HashSet<Integer> a2 = newHashSet(10, 20, 30, 40, 40, 30, 50, 60);
+        HashMap<String, Integer> a3 = newHashMap(a1, a2);
+        System.out.println(a1);
+        System.out.println(a2);
+        System.out.println(a3);
     }
 }

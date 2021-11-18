@@ -1,4 +1,4 @@
-package Exc_6;
+package Exc_9;
 
 import Exc_9.EmptyLineException;
 import Exc_9.IncorrectFormatException;
@@ -20,7 +20,7 @@ class Student{
     }
 }
 
-public class SortingStudentByGPA implements LabClassUI {
+class SortingStudentByGPA implements LabClassUI {
     ArrayList<Student> array= new ArrayList<Student>();
 
     public int Comparator(Student first, Student second) {
@@ -136,10 +136,12 @@ public class SortingStudentByGPA implements LabClassUI {
 
         boolean f = false;
         for(int i =0;i<15;i++){
-            if(array.get(i).equals(buff))
+            if(array.get(i).name.equals(buff))
                 f=true;
         }
         if(!f)
             throw new IncorrectFormatException("Not found");
+        else
+            System.out.println("Нашли");
     }
 }

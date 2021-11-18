@@ -9,6 +9,6 @@ public class Ex2 {
     }
     public boolean checker(String str){
 
-        return Pattern.compile("^[a-zA-Z0-9]*@[a-zA-Z0-9\\-_.]+\\.[a-zA-Z]+$").matcher(str).find();
+        return Pattern.compile("^[a-zA-Z0-9\\.]*@[a-zA-Z0-9\\-_.]+\\.[a-zA-Z]+$").matcher(str).find();
     }
 }

@@ -7,9 +7,7 @@ public class Client {
         this.chair = chair;
     }
 
-
     public void sit() {
         chair.sit();
-
     }
 }
