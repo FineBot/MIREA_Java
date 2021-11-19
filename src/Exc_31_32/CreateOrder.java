@@ -109,7 +109,7 @@ class OrderButtons extends JPanel {
 
     OrderButtons(Order currentOrder, OrderManager orderManager,JFrame parent) {
         JPanel jo = new JPanel();
-        address=currentOrder.get
+        address=currentOrder.get // тут получение адреса из заказа
         JLabel jl = new JLabel("Адрес: "+address);
         jo.add(jl, BorderLayout.NORTH);
         add(jo);
