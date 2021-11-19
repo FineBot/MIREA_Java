@@ -2,8 +2,10 @@ package Exc_14_15x2;
 
 import java.util.*;
 
-class RestaurantOrder implements Order {
+public class RestaurantOrder implements Order {
     Node firstNode = null;
+    protected String type="local";
+
 
     class Node {
         Node next = null;

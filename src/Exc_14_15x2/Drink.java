@@ -11,7 +11,7 @@ public final class Drink implements Item {
 
         this.desc=desc;
     }
-    Drink(int price, String name, String desc){
+    public Drink(int price, String name, String desc){
         this.price=price;
         this.name=name;
         this.desc=desc;

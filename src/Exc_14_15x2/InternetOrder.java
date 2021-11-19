@@ -74,8 +74,22 @@ public class InternetOrder implements Order {
         }
 
         if (lastFind != null) {
-            lastFind.next.prev = lastFind.prev;
-            lastFind.prev.next = lastFind.next;
+            if(lastFind.prev==null){
+                if(lastFind.next==null){
+                    firstNode=null;
+                }else{
+                    lastFind=lastFind.next;
+                    lastFind.prev=null;
+                    firstNode=lastFind;
+                }
+            }else{
+                if(lastFind.next==null){
+                    lastFind.prev.next = null;
+                }else{
+                    lastFind.next.prev = lastFind.prev;
+                    lastFind.prev.next = lastFind.next;
+                }
+            }
         }
         return true;
     }

@@ -1,52 +1,6 @@
 package Exc_14_15x2;
 
 
-interface Item {
-    int getPrice();
-
-    String getName();
-
-    String getDesc();
-}
-
-interface Order {
-
-    void add(orderItem data);
-
-    boolean remove(String name);
-
-    boolean removeAll(String name);
-
-    int dishQuantity();
-
-    double getCostSummary();
-
-    int dishQuantity(String name);
-
-    String[] getOrdersName();
-
-    orderItem getOrderItem(int i);
-
-    orderItem[] getSortedOrders();
-
-    orderItem[] getOrders();
-
-    String getType();
-
-}
-
-class orderItem<AnyType>{
-    private AnyType obj;
-
-    public orderItem(AnyType obj) {
-        this.obj = obj;
-    }
-
-    public AnyType getObj() {
-        return obj;
-    }
-}
-
 public class main {
 
     public static void main(String[] args) {

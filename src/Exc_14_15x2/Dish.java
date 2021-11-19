@@ -11,7 +11,7 @@ public final class Dish implements Item {
 
         this.desc=desc;
     }
-    Dish(int price, String name, String desc){
+    public Dish(int price, String name, String desc){
         if(price<0 || name.equals("") || desc.equals(""))
             throw new IllegalArgumentException("The argument must be more then 0 and not equals empty symbol.");
         this.price=price;
