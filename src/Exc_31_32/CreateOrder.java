@@ -13,7 +13,7 @@ import java.util.EventListener;
 import static groovy.console.ui.text.FindReplaceUtility.dispose;
 
 public class CreateOrder extends JFrame {
-    CreateOrder(String type,OrderManager orderManager, Order setOrder) {
+    CreateOrder(String type,OrderManager orderManager, Order setOrder, String name) {
         setResizable(false);
         setSize(500, 700);
         InternetOrder newInternetOrder = new InternetOrder();
@@ -21,13 +21,13 @@ public class CreateOrder extends JFrame {
         Order currentOrder;
         currentOrder=setOrder;
 
-        add(new List(currentOrder,orderManager, this));
+        add(new List(currentOrder,orderManager, this,name));
         show();
     }
 }
 
 class List extends JPanel {
-    List(Order currentOrder, OrderManager orderManager, JFrame parent) {
+    List(Order currentOrder, OrderManager orderManager, JFrame parent, String name) {
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         JLabel info = new JLabel("Продукты в заказе");
         info.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -36,7 +36,7 @@ class List extends JPanel {
         setBorder(BorderFactory.createEmptyBorder(15, 100, 25, 100));
         JScrollPane scrollPane = new JScrollPane(new allProducts(currentOrder));
         add(scrollPane);
-        add(new OrderButtons(currentOrder, orderManager,parent), BorderLayout.NORTH);
+        add(new OrderButtons(currentOrder, orderManager,parent, name), BorderLayout.NORTH);
     }
 }
 
@@ -107,9 +107,9 @@ class OrderItemProduct extends JLabel {
 class OrderButtons extends JPanel {
     String address="";
 
-    OrderButtons(Order currentOrder, OrderManager orderManager,JFrame parent) {
+    OrderButtons(Order currentOrder, OrderManager orderManager,JFrame parent, String name) {
         JPanel jo = new JPanel();
-        address=currentOrder.get // тут получение адреса из заказа
+        address=name;
         JLabel jl = new JLabel("Адрес: "+address);
         jo.add(jl, BorderLayout.NORTH);
         add(jo);
@@ -162,6 +162,7 @@ class OrderButtons extends JPanel {
         save.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                orderManager.removeOrder(name);
                 try {
                     orderManager.add(address, currentOrder);
                 } catch (OrderAlreadyAddedException ex) {
@@ -180,11 +181,36 @@ class OrderButtons extends JPanel {
 
 class CreateOrderItem extends JFrame {
     CreateOrderItem(Order currentOrder, String type) {
-        setSize(300, 250);
+        setSize(300, 300);
         setResizable(false);
         JPanel parentPanel = new JPanel();
         parentPanel.setLayout(new BoxLayout(parentPanel, BoxLayout.Y_AXIS));
         parentPanel.add(new InputPanel("Название"));
+
+
+
+        String[] items = {
+                "BEER",
+                "WINE",
+                "VODKA",
+                "BRANDY",
+                "CHAMPACNE",
+                "WHISKEY",
+                "TEQUILA",
+                "RUM",
+                "VERMUTH",
+                "LIQUOR",
+                "JAGERMEISTER",
+                "сок",
+        };
+        JComboBox comboBox = new JComboBox(items);
+        comboBox.setBorder(BorderFactory.createEmptyBorder(20,0,0,0));
+        if(type=="Drink"){
+
+            parentPanel.add(comboBox);
+        }
+
+
         parentPanel.add(new InputPanel("Описание"));
         parentPanel.add(new InputPanel("Цена"));
 
@@ -199,8 +225,29 @@ class CreateOrderItem extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String name = ((InputPanel) parentPanel.getComponent(0)).getText();
-                String desc = ((InputPanel) parentPanel.getComponent(1)).getText();
-                String price = ((InputPanel) parentPanel.getComponent(2)).getText();
+                String desc;
+                String price;
+
+
+                if(type=="Drink"){
+                    desc=((InputPanel) parentPanel.getComponent(2)).getText();
+                    price=((InputPanel) parentPanel.getComponent(3)).getText();
+                    if(items[comboBox.getSelectedIndex()].equals("сок")){
+
+                    }else{
+                        int dialogResult = JOptionPane.showConfirmDialog (null, "Вам есть 18 лет?","Упс...........",JOptionPane.YES_NO_OPTION);
+                        if(dialogResult==JOptionPane.YES_OPTION){
+
+                        }else{
+                            setVisible(false);
+                            dispose();
+                            return;
+                        }
+                    }
+                }else{
+                    desc = ((InputPanel) parentPanel.getComponent(1)).getText();
+                    price = ((InputPanel) parentPanel.getComponent(2)).getText();
+                }
 
 
                 if (type == "Dish") {

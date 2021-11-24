@@ -44,7 +44,7 @@ class ButtonPanel extends JPanel {
         addInternet.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                CreateOrder createFrame = new CreateOrder("Internet", orderManager, new InternetOrder());
+                CreateOrder createFrame = new CreateOrder("Internet", orderManager, new InternetOrder(),"");
             }
         });
         addInternet.setAlignmentY(Component.CENTER_ALIGNMENT);
@@ -53,7 +53,7 @@ class ButtonPanel extends JPanel {
         addLocal.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                CreateOrder createFrame = new CreateOrder("Restaurant", orderManager, new RestaurantOrder());
+                CreateOrder createFrame = new CreateOrder("Restaurant", orderManager, new RestaurantOrder(),"");
 
             }
         });
@@ -141,7 +141,7 @@ class OrderItem extends JLabel {
         addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                CreateOrder createFrame = new CreateOrder("Internet", orderManager, order);
+                CreateOrder createFrame = new CreateOrder("Internet", orderManager, order,name);
             }
 
             @Override

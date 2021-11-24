@@ -1,9 +1,12 @@
 package Exc_14_15x2;
 
+import java.util.Enumeration;
+
 public final class Drink implements Item {
     private int price;
     private String name;
     private String desc;
+    private Enumeration type;
 
     Drink(String name, String desc){
         price=0;
@@ -27,5 +30,10 @@ public final class Drink implements Item {
 
     public String getDesc() {
         return desc;
+    }
+
+    public Enumeration getType(){return type;}
+    public void setType(Enumeration type){
+        this.type=type;
     }
 }
